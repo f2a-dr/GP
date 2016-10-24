@@ -10,7 +10,8 @@ find_path(LAPACK_HEADERS
 
 include_directories(
   ${LAPACK_HEADERS}
-  ${ARMADILLO_INCLUDE_DIRS})
+  ${ARMADILLO_INCLUDE_DIRS}
+  include)
 
 #common commands for building c++ executables and libraries
 add_library(${PROJECT_NAME}

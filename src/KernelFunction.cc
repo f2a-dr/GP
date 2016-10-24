@@ -1,4 +1,4 @@
-#include "KernelFunction.h"
+#include "gp/KernelFunction.h"
 
 SqExpKernel::SqExpKernel()
 {

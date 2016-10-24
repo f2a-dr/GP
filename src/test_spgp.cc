@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "SPGP.h"
+#include "gp/SPGP.h"
 
 using namespace std;
 

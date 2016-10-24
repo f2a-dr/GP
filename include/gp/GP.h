@@ -3,10 +3,10 @@
 
 #include "armadillo"
 using namespace arma;
-#include "myTypes.h"
+#include "gp/myTypes.h"
 
-#include "KernelFunction.h"
-#include "MeanFunction.h"
+#include "gp/KernelFunction.h"
+#include "gp/MeanFunction.h"
 
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_multimin.h>

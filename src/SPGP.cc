@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-#include "SPGP.h"
-#include "CGOptimizer.h"
-#include "armadillo_backsub.h"
+#include "gp/SPGP.h"
+#include "gp/CGOptimizer.h"
+#include "gp/armadillo_backsub.h"
 
 SPGP::SPGP(REAL s2_n, KernelFunction *kernel, MeanFunction *mean)
   : GP(s2_n, kernel, mean)

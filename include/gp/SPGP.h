@@ -1,7 +1,7 @@
 #ifndef _SPGP_H_
 #define _SPGP_H_
 
-#include "GP.h"
+#include "gp/GP.h"
 
 double f_eval_pi(const gsl_vector *x, void *param);
 void df_eval_pi(const gsl_vector *x, void *param, gsl_vector *g);

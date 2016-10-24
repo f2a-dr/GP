@@ -1,10 +1,10 @@
 #include <gsl/gsl_multimin.h>
-#include "GP.h"
+#include "gp/GP.h"
 
 #include <iostream>
 using namespace std;
 
-#include "CGOptimizer.h"
+#include "gp/CGOptimizer.h"
 
 CGOptimizer::CGOptimizer(void *gp)
 {

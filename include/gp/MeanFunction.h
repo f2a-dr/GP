@@ -4,7 +4,7 @@
 #include "armadillo"
 using namespace arma;
 
-#include "myTypes.h"
+#include "gp/myTypes.h"
 
 class MeanFunction {
  public:

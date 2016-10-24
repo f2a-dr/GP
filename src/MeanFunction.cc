@@ -1,4 +1,4 @@
-#include "MeanFunction.h"
+#include "gp/MeanFunction.h"
 
 void MeanFunction::SetParams(const Col<REAL>& param)
 {

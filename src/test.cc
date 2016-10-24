@@ -1,5 +1,5 @@
 #include <iostream>
-#include "GP.h"
+#include "gp/GP.h"
 
 using namespace std;
 

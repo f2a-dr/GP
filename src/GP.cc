@@ -3,9 +3,9 @@ using namespace std;
 
 //#define BENCHMARK
 
-#include "GP.h"
-#include "CGOptimizer.h"
-#include "armadillo_backsub.h"
+#include "gp/GP.h"
+#include "gp/CGOptimizer.h"
+#include "gp/armadillo_backsub.h"
 
 GP::GP(REAL s2_n, KernelFunction *kernel, MeanFunction *mean)
 {

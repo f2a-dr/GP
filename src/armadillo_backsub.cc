@@ -1,4 +1,4 @@
-#include "armadillo_backsub.h"
+#include "gp/armadillo_backsub.h"
 
 #include <clapack.h>
 
