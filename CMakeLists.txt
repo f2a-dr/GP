@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(gp)
 set(CMAKE_BUILD_TYPE Debug)
 
-find_package(ARMADILLO REQUIRED)
+find_package(Armadillo REQUIRED)
 
 find_path(LAPACK_HEADERS
   clapack.h
@@ -21,6 +21,7 @@ add_library(${PROJECT_NAME}
   src/CGOptimizer.cc
   src/armadillo_backsub.cc)
 target_link_libraries(${PROJECT_NAME}
+  lapack
   ${ARMADILLO_LIBRARIES}
   gsl)
 if(APPLE)

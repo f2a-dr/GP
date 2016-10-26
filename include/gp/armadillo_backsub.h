@@ -2,57 +2,12 @@
 #define ARMADILLO_BACKSUB_H_
 
 #include <armadillo>
+#include <lapacke.h>
+
 using namespace arma;
 
 namespace arma
 {
-
-  extern "C"
-  {
-// Cholesky decomposition Solve
-    void arma_fortran(spotrs)(char* uplo, blas_int* n, blas_int *nrhs, float* a, blas_int* lda, float* b, blas_int* ldb, blas_int* info);
-    void arma_fortran(dpotrs)(char* uplo, blas_int* n, blas_int *nrhs, double* a, blas_int* lda, double* b, blas_int* ldb, blas_int* info);
-  }
-
-  namespace lapack
-  {
-
-    template<typename eT>
-      inline
-      void
-      potrs(char* uplo, blas_int* n, blas_int *nrhs, const eT* a, blas_int* lda, eT* b, blas_int* ldb, blas_int* info)
-    {
-      arma_type_check(( is_supported_blas_type<eT>::value == false ));
-
-      if(is_float<eT>::value == true)
-      {
-        typedef float T;
-        arma_fortran(spotrs)(uplo, n, nrhs, (T*)a, lda, (T*)b, ldb, info);
-      }
-      else
-        if(is_double<eT>::value == true)
-        {
-          typedef double T;
-          arma_fortran(dpotrs)(uplo, n, nrhs, (T*)a, lda, (T*)b, ldb, info);
-        }
-        else {
-          
-          /* if(is_supported_complex_float<eT>::value == true) */
-          /* { */
-          /*   typedef std::complex<float> T; */
-          /*   arma_fortran(cpotrs)(uplo, n, nrhs, (T*)a, lda, (T*)b, ldb, info); */
-          /* } */
-          /* else */
-          /*   if(is_supported_complex_double<eT>::value == true) */
-          /*   { */
-          /*     typedef std::complex<double> T; */
-          /*     arma_fortran(zpotrs)(uplo, n, nrhs, (T*)a, lda, (T*)b, ldb, info); */
-          /*   } */
-        }
-        
-    }
-
-  }
 
   template<typename eT>
     inline
@@ -71,7 +26,7 @@ namespace arma
       Mat<eT> U_copy = U;
       
       out = B;
-      lapack::potrs(&uplo, &n, &nrhs, U_copy.memptr(), &n, out.memptr(), &n, &info);
+      LAPACK_spotrs(&uplo, &n, &nrhs, U_copy.memptr(), &n, out.memptr(), &n, &info);
       
       return (info == 0);
     }
