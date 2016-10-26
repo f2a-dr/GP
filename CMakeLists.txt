@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(gp)
-set(CMAKE_BUILD_TYPE Debug)
+#set(CMAKE_BUILD_TYPE Debug)
 
 find_package(Armadillo REQUIRED)
 
@@ -54,3 +54,14 @@ if(APPLE)
   set_target_properties(test_spgp
     PROPERTIES LINK_FLAGS "${LINK_FLAGS} -framework Accelerate")
 endif()
+
+
+# Install libraries
+install(TARGETS gp
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+  LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+)
+# Install headers
+install(DIRECTORY include/gp
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/include
+)
