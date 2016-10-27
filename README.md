@@ -6,8 +6,9 @@ This library provides a C++ implementation of Gaussian process regression as des
 Dependencies
 ------------
 
-* [Armadillo](http://arma.sourceforge.net/) is a C++ linear algebra library with LAPACK integration.
-* [Gnu Scientific Library (GSL)](http://www.gnu.org/software/gsl/) provides some non-linear optimization routines for doing hyper-parameter estimation.
+* [Armadillo](http://arma.sourceforge.net/) is a C++ linear algebra library with LAPACK integration. (sudo apt-get install libarmadillo-dev)
+* [Gnu Scientific Library (GSL)](http://www.gnu.org/software/gsl/) provides some non-linear optimization routines for doing hyper-parameter estimation. (sudo apt-get install libgsl-dev)
+* [ATLAS](http://math-atlas.sourceforge.net/), [LAPACK](http://www.netlib.org/lapack/), [LAPACKE](http://www.netlib.org/lapack/lapacke.html) (sudo apt-get install libatlas-dev liblapacke-dev)
 
 Building
 --------
