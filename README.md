@@ -18,6 +18,13 @@ Standard cmake build..
      $ cmake ..
      $ make
 
+Installation
+--------
+
+     $ mkdir build && cd build
+     $ cmake ..
+     $ make install
+
 Basic Usage
 -----------
 An example is given in 'src/test.cc'
