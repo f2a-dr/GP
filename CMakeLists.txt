@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(gp)
 #set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 find_package(Armadillo REQUIRED)
 
@@ -14,7 +15,7 @@ include_directories(
   include)
 
 #common commands for building c++ executables and libraries
-add_library(${PROJECT_NAME}
+add_library(${PROJECT_NAME} SHARED
   src/GP.cc
   src/KernelFunction.cc
   src/MeanFunction.cc
@@ -26,7 +27,7 @@ target_link_libraries(${PROJECT_NAME}
   gsl)
 if(APPLE)
   set_target_properties(${PROJECT_NAME}
-    PROPERTIES LINK_FLAGS "${LINK_FLAGS} -framework Accelerate -framework vecLib")
+    PROPERTIES LINK_FLAGS "${LINK_FLAGS} -framework Accelerate -framework vecLib -framework PIC")
 endif()
 
 add_library(SPGP
@@ -38,7 +39,7 @@ target_link_libraries(SPGP
   gsl)
 if(APPLE)
   set_target_properties(SPGP
-    PROPERTIES LINK_FLAGS "${LINK_FLAGS} -framework Accelerate -framework vecLib")
+    PROPERTIES LINK_FLAGS "${LINK_FLAGS} -framework Accelerate -framework vecLib -framework PIC")
 endif()
 
 add_executable(test_gp src/test.cc)
